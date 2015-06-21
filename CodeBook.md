@@ -8,13 +8,22 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
-Features Description
-------------------------
-
 The prefixes 't' and 'f' denote features in the time-domain and frequency-domain respectively. 
 The features are generated from 3-axial accelerometer and gyroscope measurements (x, y and z components).
 
 See the file `features_info.txt` in the data set folder for more detailed descriptions of the features and the signal processing applied to these measurements.
+
+
+### Data set transformations
+
+The following is a description of the transformations applied to the original dataset:
+
+ 1. The train and test sets were combined by concatenating the data sets row-wise using `rbind`.
+ 2. `grepl` was used to find measurements of mean and standard deviation. Only these measurements were included in the transformed data set.
+ 3. Column names were standardized and made lowercase.
+ 4. Subject id and activity performed were added as columns to the combinded dataset.
+ 5. An independent dataset was created with the average of each variable for each activity and each subject. The variable names and descriptions apply to both data sets.
+
 
 
 #### Descriptive Features
